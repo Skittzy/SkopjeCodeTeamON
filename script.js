@@ -57,6 +57,7 @@
             center: centerMap,
             zoom: 14,
             disableDefaultUI: true,
+            // stil na mapa
             styles: [
                 {
                     "elementType": "labels.text",
@@ -399,7 +400,7 @@
                     ]
                 }
             ]
-        }
+        }           
 
         const map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
 
@@ -532,3 +533,8 @@
         }
     }
 
+    
+    window.onload = async function() {
+        var nearMeButton = document.getElementById("near-me-btn");
+        nearMeButton.click(); // this will trigger the click event
+    };
