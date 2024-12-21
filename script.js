@@ -10,42 +10,62 @@
                 lat: 42.00549115720636, 
                 lng: 21.410395510672547,
                 address: 'Nikola Tesla 9, 1000 Skopje',
-                photos:['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFXezLFNon630Atg5yACtTR8Vz3Z4M0yweSQ&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5haadzXVBc6S0GYvDD9VsIxVYSd6aEauNHw&s']
+                average: '4.2',
+                photos:['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFXezLFNon630Atg5yACtTR8Vz3Z4M0yweSQ&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5haadzXVBc6S0GYvDD9VsIxVYSd6aEauNHw&s'],
+                reviews: [
+                    { user: 'Alice', rating: 4, comment: 'Great place, nice atmosphere!' },
+                    { user: 'Bob', rating: 5, comment: 'Loved it! Very spacious and comfortable.' }
+                ]
             },
             {
                 locationName: 'Base42',
                 lat: 41.99754623915873, 
                 lng: 21.407722026015424,
                 address: 'Rimska 25, 1000 Skopje',
-                photos: ['https://lh3.googleusercontent.com/p/AF1QipNP_4Mg2nxqXnzB5zHlwlX2BD0xWTumY3RnvB_q=s680-w680-h510','https://it.mk/wp-content/uploads/2024/06/IMG_2573.png']
+                photos: ['https://lh3.googleusercontent.com/p/AF1QipNP_4Mg2nxqXnzB5zHlwlX2BD0xWTumY3RnvB_q=s680-w680-h510','https://it.mk/wp-content/uploads/2024/06/IMG_2573.png'],
+                reviews: [
+                    { user: 'Charlie', rating: 4, comment: 'Nice coworking spot but can get crowded.' }
+                ]
             },
             {
                 locationName: 'Public Room',
                 lat: 41.99015817801877,
                 lng: 21.42592806834348,
                 address: '50-ta Divizija 22, 1000 Skopje',
-                photos: ['./sliki_on/publicroom1.jpghttps://www.publicroom.org/assets/images/Event-Rooms/Makers-Room.jpg', 'https://www.publicroom.org/assets/images/Event-Rooms/Slava-Room.jpg']
+                photos: ['./sliki_on/publicroom1.jpghttps://www.publicroom.org/assets/images/Event-Rooms/Makers-Room.jpg', 'https://www.publicroom.org/assets/images/Event-Rooms/Slava-Room.jpg'],
+                reviews: [
+                    { user: 'David', rating: 3, comment: 'Good room, but lacks proper ventilation.' }
+                ]
             },
             {
                 locationName: 'Startup CLub',
                 lat: 41.981261372948055, 
                 lng: 21.455414910671564,
                 address: '3rd Macedonian Brigade 60, 1000 Skopje',
-                photos: ['https://lh3.googleusercontent.com/p/AF1QipMckGEimfFt__YJ4bNxO7GN5i27JjvRP6uw0aSA=s680-w680-h510', 'https://lh3.googleusercontent.com/p/AF1QipMKPhn51c6SzLLaks_4NYW6rApxAIopFAamcUNm=s680-w680-h510']
+                photos: ['https://lh3.googleusercontent.com/p/AF1QipMckGEimfFt__YJ4bNxO7GN5i27JjvRP6uw0aSA=s680-w680-h510', 'https://lh3.googleusercontent.com/p/AF1QipMKPhn51c6SzLLaks_4NYW6rApxAIopFAamcUNm=s680-w680-h510'],
+                reviews: [
+                    { user: 'Emma', rating: 5, comment: 'Fantastic environment for working!' }
+                ]
             },
             {
                 locationName: 'Cowork Konnectivity',
                 lat: 41.97926504480842, 
                 lng: 21.438658302730715,
                 address: 'Georgi Dimitrov 16, 1000 Skopje',
-                photos: ['https://coworker.imgix.net/photos/macedonia/skopje/konnectivity-coworking-space/1.JPG?w=319&h=223&q=90&auto=format,compress&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCvt1O_tq8dQHNIsRRlOJbFHZ7C5KH2PIBqg&s']
+                photos: ['https://coworker.imgix.net/photos/macedonia/skopje/konnectivity-coworking-space/1.JPG?w=319&h=223&q=90&auto=format,compress&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCvt1O_tq8dQHNIsRRlOJbFHZ7C5KH2PIBqg&s'],
+                reviews: [
+                    { user: 'Frank', rating: 4, comment: 'Nice place with great amenities, though a bit noisy.' }
+                ]
             },
             {
                 locationName: 'The Hub by Adeva',
                 lat: 41.998036525226524,
                 lng: 21.426050261306,
                 address: 'Partizanski Odredi 17, 1000 Skopje',
-                photos: ['https://lh3.googleusercontent.com/p/AF1QipMe8_v176vH-pJG608TIgn2pmdq-AGaqBlbVriL=s680-w680-h510', 'https://lh3.googleusercontent.com/p/AF1QipNx6iACPZUwXciWQ8s46U6_b2n1rOtNBDeJglQi=s680-w680-h510']
+                photos: ['https://lh3.googleusercontent.com/p/AF1QipMe8_v176vH-pJG608TIgn2pmdq-AGaqBlbVriL=s680-w680-h510', 'https://lh3.googleusercontent.com/p/AF1QipNx6iACPZUwXciWQ8s46U6_b2n1rOtNBDeJglQi=s680-w680-h510'],
+                reviews: [
+                    { user: 'Grace', rating: 4, comment: 'Excellent facilities, but the internet can be spotty.' }
+                ]
             }
         ];
 
@@ -421,19 +441,31 @@
 
                 const distance = haversineDistance(userLocation, { lat: markerData.lat, lng: markerData.lng });
                 
-                const infoWindowContent = `
-                    <div style="color: black; font-family: Arial, sans-serif;">
-                        <h3 style="color: black; font-size: 21px; font-weight: bold;">${markerData.locationName}</h3>
-                        <p style="color: black;">${markerData.address}</p>
-                        <p style="color: black;">Distance from you: ${distance.toFixed(2)} km</p>
-                        <div>
-                            ${markerData.photos ? markerData.photos.map(photo => `
-                                <img src="${photo}" alt="${markerData.locationName}" 
-                                    style="width: 150px; height: 150px; object-fit: cover; margin: 5px;">
-                            `).join('') : ''}
-                        </div>
+                const reviewsHTML = markerData.reviews.map(review => `
+                    <div style="color: black;">
+                        <strong style="color: black;">${review.user}</strong> - ${'⭐'.repeat(review.rating)}<br>
+                        <em style="color: black;">${review.comment}</em>
                     </div>
-                `;
+                `).join('<br>');
+
+                const infoWindowContent = `
+               <div class="custom-info-window" style="color: black; font-family: Arial, sans-serif;">
+                    <h3 style="color: black; font-size: 21px; font-weight: bold;">${markerData.locationName}</h3>
+                    <p style="color: black;">${markerData.address}</p>
+                    <p style="color: black;">Distance from you: ${distance.toFixed(2)} km</p>
+                    <p style="color: black;">Average: ${markerData.average}⭐</p>
+                    <div>
+                        ${markerData.photos ? markerData.photos.map(photo => `
+                            <img src="${photo}" alt="${markerData.locationName}" 
+                                style="width: 150px; height: 150px; object-fit: cover; margin: 5px;">
+                        `).join('') : ''}
+                    </div>
+                    <div>
+                        <h4>Reviews:</h4>
+                        ${reviewsHTML}
+                    </div>
+                </div>
+            `;
 
                 const infoWindow = new google.maps.InfoWindow({
                     content: infoWindowContent
