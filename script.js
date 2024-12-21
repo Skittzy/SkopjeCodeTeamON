@@ -1,7 +1,6 @@
     let markersArray = []; 
     let markersVisible = true;
     let currentInfoWindow = null;
-    let photoPopup = null;
 
     function initMap() {
 
@@ -414,6 +413,11 @@
                     title: markerData.locationName
                 });
 
+                if (!markerData.locationName || !markerData.address) {
+                    console.warn('Missing locationName or address for marker:', markerData);
+                    return;
+                }
+
                 const distance = haversineDistance(userLocation, { lat: markerData.lat, lng: markerData.lng });
                 
                 const infoWindowContent = `
@@ -448,62 +452,7 @@
 
         addMarkersToMap(markers, { lat: 42.001082, lng: 21.4346245 }); 
 
-        // Add event listener for image click
-    document.body.addEventListener('click', (event) => {
-        if (event.target.classList.contains('thumbnail-photo')) {
-            const location = event.target.dataset.location;
-            const photoIndex = event.target.dataset.index;
-            openPhotoPopup(location, photoIndex);
-        }
-    });
-
-    function openPhotoPopup(location, startIndex) {
-        const marker = markers.find(m => m.locationName === location);
-        const photos = marker.photos;
-        let currentIndex = startIndex;
-
-        const photoPopup = document.createElement('div');
-        photoPopup.classList.add('photo-popup');
-
-        const photoContainer = document.createElement('div');
-        photoContainer.classList.add('photo-container');
-        const imgElement = document.createElement('img');
-        imgElement.src = photos[currentIndex];
-        imgElement.classList.add('photo-popup-image');
-
-        const prevButton = document.createElement('button');
-        prevButton.classList.add('nav-button', 'prev');
-        prevButton.textContent = '←';
-
-        const nextButton = document.createElement('button');
-        nextButton.classList.add('nav-button', 'next');
-        nextButton.textContent = '→';
-
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + photos.length) % photos.length;
-            imgElement.src = photos[currentIndex];
-        });
-
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % photos.length;
-            imgElement.src = photos[currentIndex];
-        });
-
-        photoContainer.appendChild(prevButton);
-        photoContainer.appendChild(imgElement);
-        photoContainer.appendChild(nextButton);
-
-        photoPopup.appendChild(photoContainer);
-        document.body.appendChild(photoPopup);
-
-        // Close the popup when clicking outside
-        photoPopup.addEventListener('click', (e) => {
-            if (e.target === photoPopup) {
-                document.body.removeChild(photoPopup);
-            }
-        });
-    }
-
+        
         function haversineDistance(coord1, coord2) {
             const toRad = angle => angle * (Math.PI / 180);
             const R = 6371;
