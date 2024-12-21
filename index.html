@@ -8,6 +8,41 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
+
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            html, body {
+                height: 100%;
+                width: 100%;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+
+            #google-map {
+                width: 100vw;
+                height: 100vh;
+                border: 10px solid #ccc; 
+                box-sizing: border-box; 
+            }
+
+            h1 {
+                position: absolute; 
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(255, 255, 255, 0.8); 
+                border-radius: 5px;
+                font-size: 18px;
+            }
+        </style>
     </head>
 
     <body>
@@ -17,5 +52,8 @@
         </div>
 
     </body>
+
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=//KEY//&callback=initMap"></script>
+    <script src="script.js"></script>
 
 </html>
