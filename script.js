@@ -1,3 +1,6 @@
+let markersArray = []; 
+let markersVisible = true;
+
 function initMap() {
 
     const markers = [
@@ -386,81 +389,103 @@ function initMap() {
 
     const map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
 
-    markers.forEach(markerData => {
-        const marker = new google.maps.Marker({
-            position: { lat: markerData.lat, lng: markerData.lng },
-            map: map,
-            title: markerData.locationName
-        });
-
-        const infoWindow = new google.maps.InfoWindow({
-            content: `<h3>${markerData.locationName}</h3><p>${markerData.address}</p>`
-        });
-
-        marker.addListener('click', () => {
-            infoWindow.open(map, marker);
-        });
-    });
-
-    for(let i = 0; i < markers.length; i++){
-        const marker = new google.maps.Marker({
-            position: { lat: markers[i]['lat'], lng: markers[i]['lng'] },
-            map: map
-        });
-    }
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            const userLocation = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            // Add user location marker
-            const userMarker = new google.maps.Marker({
-                position: userLocation,
+    //inicijalno gi stavam site markeri na mapata
+    function addMarkersToMap(markerDataArray) {
+        markerDataArray.forEach(markerData => {
+            const marker = new google.maps.Marker({
+                position: { lat: markerData.lat, lng: markerData.lng },
                 map: map,
-                title: 'You Are Here',
-                icon: {
-                    path: google.maps.SymbolPath.CIRCLE,
-                    scale: 8,
-                    fillColor: '#4285F4',
-                    fillOpacity: 1,
-                    strokeColor: '#FFFFFF',
-                    strokeWeight: 2
-                }
+                title: markerData.locationName
             });
-
-            map.setCenter(userLocation);
-
-            // Calculate distances and show only nearby markers
-            const nearMarkers = markers.filter(markerData => {
-                const distance = haversineDistance(userLocation, { lat: markerData.lat, lng: markerData.lng });
-                return distance <= 5; // Distance in kilometers
-            });
-
-            console.log('Nearby markers:', nearMarkers);
-        }, () => {
-            alert('Geolocation failed or permission denied.');
+            markersArray.push(marker); 
         });
-    } else {
-        alert('Geolocation is not supported by this browser.');
     }
 
+    addMarkersToMap(markers);
 
-    // Haversine formula to calculate distance between two points
+    //nekoja formula za presmetuvanje na rastojanie megju dve tocki
     function haversineDistance(coord1, coord2) {
         const toRad = angle => angle * (Math.PI / 180);
-        const R = 6371; // Earth radius in km
+        const R = 6371; 
 
         const dLat = toRad(coord2.lat - coord1.lat);
         const dLng = toRad(coord2.lng - coord1.lng);
-        const a = Math.sin(dLat / 2) ** 2 +
-                Math.cos(toRad(coord1.lat)) * Math.cos(toRad(coord2.lat)) * Math.sin(dLng / 2) ** 2;
+        const a =
+            Math.sin(dLat / 2) ** 2 +
+            Math.cos(toRad(coord1.lat)) * Math.cos(toRad(coord2.lat)) * Math.sin(dLng / 2) ** 2;
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-        return R * c; // Distance in km
+        return R * c; 
+    }
 
 
+    function filterMarkers(userLocation) {
+        console.log("Filtering markers for user at:", userLocation);
+
+        const nearbyMarkers = markers.filter(markerData => {
+            const distance = haversineDistance(userLocation, { lat: markerData.lat, lng: markerData.lng });
+            console.log(`Distance from user to ${markerData.locationName}: ${distance} km`);
+            return distance <= 2; 
+        });
+
+        clearMarkers();
+
+        addMarkersToMap(nearbyMarkers);
+    }
+
+    // trganje na markerite
+    function clearMarkers() {
+        markersArray.forEach(marker => marker.setMap(null)); 
+        markersArray = []; 
+    }
+
+    
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                const userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                // log za debagiranje
+                console.log("User location: ", userLocation);
+
+                //marker za lokacijata na userot
+                const userMarker = new google.maps.Marker({
+                    position: userLocation,
+                    map: map,
+                    title: 'You Are Here',
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 10,
+                        fillColor: '#4285F4',
+                        fillOpacity: 1,
+                        strokeColor: '#FFFFFF',
+                        strokeWeight: 2
+                    }
+                });
+
+                // centrirano na lokacijata na userot
+                map.setCenter(userLocation);
+
+                document.getElementById('near-me-btn').addEventListener('click', () => {
+                    if (markersVisible) {
+                        filterMarkers(userLocation);
+                    } else {
+                        clearMarkers();
+                        addMarkersToMap(markers);
+                    }
+                    markersVisible = !markersVisible; 
+                });
+            },
+            error => {
+                console.error("Geolocation error: ", error);
+                alert('Geolocation failed or permission denied.');
+            }
+        );
+    } else {
+        alert('Geolocation is not supported by this browser.');
     }
 }
+
