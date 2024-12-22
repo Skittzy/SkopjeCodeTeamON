@@ -29,6 +29,7 @@ body {
     display: flex;
     justify-content: center;
 }
+
 /* h1 {
     position: absolute;
     top: 10px;
@@ -53,37 +54,7 @@ body {
   font-size: 16px;
   border: none;
 }
-.photo-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-.photo-container {
-    position: relative;
-    text-align: center;
-}
-.photo-popup-image {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
-}
-.nav-button {
-    position: absolute;
-    top: 50%;
-    font-size: 24px;
-    background: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-    z-index: 1;
-}
+
 .prev {
     left: 10px;
     transform: translateY(-50%);
@@ -152,11 +123,13 @@ body {
     font-size: 15px;
     border-radius: 10px;
     border: 3px solid transparent;
-    background: rgba(0, 0, 0, 0.15);
+    background: solid transparent;
     outline: none;
     font-weight: 500;
     transition: 0.25s border;
     padding-right: 45px;
+    color: #8eb074;
+    resize: none;
 }
 
 .study-place-input:focus {
@@ -164,17 +137,7 @@ body {
 }
 
 .study-place-input::placeholder {
-    color: rgba(255, 255, 255, 1);
-}
-.search-btn {
-    position: absolute;
-    right: 16px;
-    top: 10px;
-
-    background: none;
-    display: flex;
-    border: none;
-    cursor: pointer;
+    color: #8eb074;
 }
 
 /* beige - #ccccc1 green - #8eb074 */
@@ -190,7 +153,6 @@ body {
     --secondary:#a2ad82;
     --text-color: #3d4131;;
 }
-
 
 .rating{
     width: 15vw;
@@ -211,7 +173,7 @@ body {
 .rating_average h1{
     font-size: 2rem;
     margin-bottom: 1rem;
-    /*color: #3d4131;*/
+    color: #ffffff;
 
 }
 .ratingaverage.star-outer {
@@ -222,7 +184,7 @@ body {
 }
 .ratingaverage.star-outer::before {
     content: "\2605 \2605 \2605 \2605 \2605";
-    /*color: #3d4131;*/
+    color: #ffffff;
 }
 
 .ratingaverage.star-inner {
@@ -239,7 +201,7 @@ body {
 .rating_average p{
     margin-top: .7rem;
     letter-spacing: .1rem;
-    /*color: #3d4131;*/
+    color: #ffffff;
 }
 
 .rating_progress{
@@ -248,7 +210,7 @@ body {
 
 .rating_progress-value{
     height: 2rem;
-    /*color: #3d4131;*/
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -262,7 +224,7 @@ body {
 
 .rating_progress-value p:last-child{
     width: 10%;
-    /*color: #3d4131;*/
+    /*color: #ffffff;*/
 }
 
 .rating_progress .progress{
@@ -286,7 +248,7 @@ body {
     margin-bottom: 15px;
     font-size: 16px;
     font-weight: bold;
-    color: #444; 
+    color: #8eb074; 
     font-family: Arial, sans-serif;
 }
 
@@ -309,3 +271,4 @@ body {
     color: #333; 
     font-family: Arial, sans-serif;
 }
+
