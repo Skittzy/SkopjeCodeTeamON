@@ -125,6 +125,7 @@ body {
 /* Sidebar with green gradient */
 .home-menu {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 40vw;
     height: 100vh;
@@ -134,8 +135,8 @@ body {
     background: linear-gradient(to top, #5f6f52, #A9b388); /* Cozy green gradient */
 }
 .title {
-    padding-bottom: 15%;
-    position: absolute;
+    padding-bottom: 10%;
+    /* position: absolute; */
     color: rgba(255, 255, 255, 1);
     font-size: 40px;
 }
@@ -146,7 +147,7 @@ body {
 .study-place-input {
     width: 100%;
     padding: 10px 16px;
-    border-radius: 99px;
+    border-radius: 10px;
     border: 3px solid transparent;
     background: rgba(0, 0, 0, 0.15);
     outline: none;
@@ -163,10 +164,110 @@ body {
 .search-btn {
     position: absolute;
     right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 10px;
+
     background: none;
     display: flex;
     border: none;
     cursor: pointer;
 }
+
+
+.rating-app{
+    background-color: var(--primary);
+    color: var(--text-color);
+    display: grid;
+    padding:1em;
+    border-radius:0.8em;
+    place-items: center;
+    --primary: #181736;
+    --secondary: #252549;
+    --text-color: #fff;
+}
+
+.rating{
+    width: 12vw;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.rating_average{
+    width: 30%;
+    background-color: var(--secondary);
+    padding: 0.5rem;
+    border-radius: .8rem;
+    text-align: center;
+}
+
+.rating_average h1{
+    font-size: 2rem;
+
+}
+.ratingaverage.star-outer {
+    position: relative;
+    font-size: 2rem;
+
+    display: inline-block;
+}
+.ratingaverage.star-outer::before {
+    content: "\2605 \2605 \2605 \2605 \2605";
+    color: #fff8;
+}
+
+.ratingaverage.star-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    overflow: hidden;
+}
+.ratingaverage.star-inner::before {
+    content: "\2605 \2605 \2605 \2605 \2605";
+    color: gold;
+}
+.rating_average p{
+    margin-top: .7rem;
+    letter-spacing: .1rem;
+}
+
+.rating_progress{
+    width: 70%;
+
+}
+
+.rating_progress-value{
+    height: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    column-gap: 1rem;
+}
+
+.rating_progress-value .star{
+    font-size: 1.2rem;
+    color: gold;
+}
+
+.rating_progress-value p:last-child{
+    width: 10%;
+}
+
+.rating_progress .progress{
+    flex: 1 1 0;
+    height: .5rem;
+    border-radius: 5rem;
+    background-color: #ff02;
+}
+
+.bar{
+    height: 100%;
+    background-color: gold;
+    border-radius: .5rem;
+
+}
+
+.checked {
+    color: gold;
+  }
