@@ -403,6 +403,12 @@ function initMap() {
         ]
     }
 
+    const Kafemarker = {
+        url: 'https://raw.githubusercontent.com/Skittzy/SkopjeCodeTeamON/refs/heads/main/location-indicator-red-svgrepo-com.svg', 
+        scaledSize: new google.maps.Size(50, 50),  
+        anchor: new google.maps.Point(25, 50),  
+    };
+
     const map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
 
     getRatingsForMarkers(markers);
@@ -422,7 +428,8 @@ function initMap() {
             const marker = new google.maps.Marker({
                 position: { lat: markerData.lat, lng: markerData.lng },
                 map: map,
-                title: markerData.locationName
+                title: markerData.locationName,
+                icon: Kafemarker
             });
     
             if (!markerData.locationName || !markerData.address) {
