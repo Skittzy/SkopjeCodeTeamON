@@ -1,7 +1,7 @@
 let markersArray = [];
 let markersVisible = true;
 let currentInfoWindow = null;
-let currentSelectedStar = null;
+let lastClickedMarker = null;
 
 function initMap() {
 
@@ -662,8 +662,8 @@ function onRatingClicked(element) {
         onRatingStarsOver(element,true);
         initMap();
     
-        location.reload(true);
-        // clearMarkers();
+        //location.reload(true);
+        // clearMarkers();s
         // addMarkersToMap(markers, userLocation);
     }
 }
